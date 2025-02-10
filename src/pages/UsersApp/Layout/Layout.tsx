@@ -13,8 +13,7 @@ import {
   StyledLink,
   FooterNavContainer,
 } from "./styles"
-import Logo from '../../../assets/logo.jpg';
-
+import Logo from "../../../assets/logo.jpg"
 
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate()
@@ -25,7 +24,7 @@ function Layout({ children }: LayoutProps) {
     <LayoutWrapper>
       <Header>
         <HeaderLogoContainer onClick={goToHomePage}>
-          <HeaderLogo src={Logo}/>
+          <HeaderLogo src={Logo} />
         </HeaderLogoContainer>
         <NavContainer>
           <StyledNavLink
@@ -63,12 +62,20 @@ function Layout({ children }: LayoutProps) {
             Homework17
           </StyledNavLink>
 
+          <StyledNavLink
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+            to="/lesson18"
+          >
+            Lesson 18
+          </StyledNavLink>
         </NavContainer>
       </Header>
       <Main>{children}</Main>
       <Footer>
         <HeaderLogoContainer onClick={goToHomePage}>
-          <HeaderLogo src={Logo}/>
+          <HeaderLogo src={Logo} />
         </HeaderLogoContainer>
         <FooterNavContainer>
           <StyledLink to="/">Home</StyledLink>
