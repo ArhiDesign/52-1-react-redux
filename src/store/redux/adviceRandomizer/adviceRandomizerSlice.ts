@@ -2,6 +2,7 @@ import { createAppSlice } from "store/createAppSlice"
 import { AdviceRandomizerSliceState } from "./types"
 import axios from "axios"
 
+//Иннициализируем и потом типизируем в отдельном файле
 const adviceRandomizerInitialState: AdviceRandomizerSliceState = {
   data: [],
   error: undefined,
@@ -36,11 +37,7 @@ export const adviceRandomizerSlice = createAppSlice({
         },
       },
     ),
-    clearAdvice: (state: AdviceRandomizerSliceState) => {
-      state.data = []
-      state.status = "default"
-      state.error = undefined
-    },
+    clearAdvice: create.reducer(() => adviceRandomizerInitialState),
   }),
   selectors: {
     adviceData: (state: AdviceRandomizerSliceState) => state,
